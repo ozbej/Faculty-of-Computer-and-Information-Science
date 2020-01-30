@@ -10,7 +10,7 @@ Algorithms implement the following graph searches:
 
 Heuristics for A* and IDA* is calculated using Manhattan distance.
 
-Algorithms are searching through labyrints in the following form:
+Algorithms are searching through labyrints in the following form:<br/>
 -1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1<br/>
 -1,-2,4,4,-1,4,4,4,4,4,-1<br/>
 -1,-1,-1,4,-1,4,-1,-1,-1,4,-1<br/>
