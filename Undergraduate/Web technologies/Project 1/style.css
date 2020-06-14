@@ -1,0 +1,425 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    color: #555;
+}
+
+.nav {
+    width: 100%;
+}
+
+.nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #555;
+}
+
+.nav li {
+    float: left;
+}
+
+.nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px 8px;
+    text-decoration: none;
+}
+
+.nav li a:hover {
+    background-color: white;
+    color: #555;
+}
+
+.active {
+    background-color: #28B9B5;
+}
+
+.parallax {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-image: url("/sources/budget2.jpg");
+    min-height: 30vh;
+    background-size: cover;
+}
+
+.budget {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#available-budget, #available-budget-amount {
+    padding-top: 0;
+    margin-top: 0;
+    color: white;
+}
+
+#available-budget {
+    font-size: 3vh;
+}
+
+.budget-income, .budget-expenses {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 1vw;
+}
+
+.budget-income {
+    background-color: #28B9B5;
+}
+
+.budget-expenses {
+    background-color: #FF5049;
+    margin-top: 1vh;
+}
+
+.input {
+    width: 100%;
+    background-color: lightgray;
+    padding: 0.5vh 5vw;
+}
+
+.input input[type=text], .input input[type=number], .input select, .sort input[type=text], .sort button, .sort select {
+    float: left;
+    padding: 5px 8px;
+    margin: 4px 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.input input[type=text] {
+    width: 50%;
+}
+
+.input input[type=number] {
+    width: 16%;
+}
+
+#incomeCategory {
+    display: none;
+}
+
+#expensesCategory {
+    display: none;
+}
+
+#add-button {
+    float: left;
+    background-color: #28B9B5;
+    color: #555;
+    padding: 5px 8px;
+    margin: 4px 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.sort {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    padding: 1vh 10vw;
+    align-items: center;
+}
+
+.sort input[type="text"] {
+    margin-right: 0;
+}
+
+.sort button {
+    margin-left: 0
+}
+
+#clearFilter {
+    background-color: #FF5049;
+    color: #555;
+}
+
+#income, #expenses {
+    width: 49vw;
+    text-align: center;
+}
+
+#income h1 {
+    color: #28B9B5;
+}
+
+#expenses h1 {
+    color: #FF5049;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e7e7e7;
+    padding: 1vh 0;
+}
+
+#income .category {
+    border: 1px solid #28B9B5;
+    padding: 0.5vh 0.5vw;
+    margin-top: 0.5vh;
+    border-radius: 8px;
+}
+
+#expenses .category {
+    border: 1px solid #FF5049;
+    padding: 0.5vh 0.5vw;
+    margin-top: 0.5vh;
+    border-radius: 8px;
+}
+
+.item-income, .item-income .icon {
+    color: #28B9B5;
+    margin: 1px;
+}
+
+.item-expense, .item-expense .icon {
+    color: #FF5049;
+    margin: 1px;
+}
+
+.icon {
+    display: none;
+    padding-left: 1vw;
+    padding-right: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 3vh;
+}
+
+.trash {
+    width: 100%;
+    text-align: end;
+}
+
+.trashcan {
+    display: inline-block;
+    height: 5vh;
+}
+
+#trash-closed {
+    height: 5vh;
+}
+
+#trash-open {
+    height: 5vh;
+    display: none;
+}
+
+.trash p {
+    font-size: 2vh;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+  
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    right: 105%;
+}
+  
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.charts {
+    height: 60vh;
+}
+
+.charts .charts-income {
+    color: #28B9B5;
+    text-align: center;
+}
+
+.charts .charts-expenses {
+    color: #FF5049;
+    text-align: center;
+}
+
+.sources {
+    width: 100vw;
+    padding: 0 5vw;
+    overflow-wrap: break-word;
+}
+
+.list li {
+    padding: 1vh 1vw;
+}
+
+.charts canvas {
+    width: 90vw;
+}
+
+/* Responsive CSS */
+[class*="col-"] {
+    float: left;
+}
+
+/* For tablet */
+@media only screen and (min-width: 600px) {
+    .col-s-1 { width: 8.33%; }
+    .col-s-2 { width: 16.66%; }
+    .col-s-3 { width: 25%; }
+    .col-s-4 { width: 33.33%; }
+    .col-s-5 { width: 41.66%; }
+    .col-s-6 { width: 50%; }
+    .col-s-7 { width: 58.33%; }
+    .col-s-8 { width: 66.66%; }
+    .col-s-9 { width: 75%; }
+    .col-s-10 { width: 83.33%; }
+    .col-s-11 { width: 91.66%; }
+    .col-s-12 { width: 100%; }
+
+    .nav li a {
+        padding: 14px 16px;
+    }
+
+    .empty {
+        padding: 15px;
+    }
+
+    .parallax {
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: 50vh;
+    }
+
+    .input {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        background-color: lightgray;
+        padding: 0.5vh 0;
+    }
+
+    .input input[type=text], input[type=number], .input select {
+        padding: 10px 15px;
+        margin: 8px 10px;
+        display: inline-block;
+    }
+    
+    .input input[type=text] {
+        width: 20%;
+    }
+    
+    .input input[type=number] {
+        width: 6%;
+    }
+
+    #add-button {
+        padding: 10px 15px;
+        margin: 8px 10px;
+    }
+
+    .item {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #e7e7e7;
+        padding: 0 2vw;
+    }
+
+    #income, #expenses {
+        padding: 2vh 10vw;
+        width: 50%;
+    }
+
+    #income .category, #expenses .category {
+        margin: 5px;
+    }
+
+    .item-income, .item-income .icon {
+        color: #28B9B5;
+        margin: 5px;
+    }
+    
+    .item-expense, .item-expense .icon {
+        color: #FF5049;
+        margin: 5px;
+    }
+
+    .trash {
+        padding-right: 4vw;
+    }
+
+    .charts .col-6 {
+        padding: 2vh 10vw;
+    }
+
+    .charts canvas {
+        width: 30vw;
+  }
+}
+
+/* For desktop */
+@media only screen and (min-width: 992px) {
+    .col-1 { width: 8.33%; }
+    .col-2 { width: 16.66%; }
+    .col-3 { width: 25%; }
+    .col-4 { width: 33.33%; }
+    .col-5 { width: 41.66%; }
+    .col-6 { width: 50%; }
+    .col-7 { width: 58.33%; }
+    .col-8 { width: 66.66%; }
+    .col-9 { width: 75%; }
+    .col-10 { width: 83.33%; }
+    .col-11 { width: 91.66%; }
+    .col-12 { width: 100%; }
+
+    .sort {
+        flex-direction: row;
+    }
+
+    .sort input[type=text] {
+        margin-right: 0;
+    }
+
+    .sort button {
+        margin-left: 0;
+    }
+
+    .sort input[type=text], .sort button, .sort select {
+        padding: 10px 15px;
+        margin: 8px 10px;
+        display: inline-block;
+    }
+
+    .sort input[type=text] {
+        margin-right: 0;
+    }
+
+    .sort button {
+        margin-left: 0;
+    }
+}

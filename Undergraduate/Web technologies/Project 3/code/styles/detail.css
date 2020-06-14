@@ -1,0 +1,96 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+.detail h1{
+    padding-top: 2vh;
+    font-size: 20px;
+}
+
+.detail p {
+    font-size: 15px;
+}
+
+.detail, .comments {
+    width: 95%;
+    margin: 0 auto;
+    margin-bottom: 10vh;
+}
+
+.carousel-item {
+    height: 200px;
+}
+
+.info {
+    margin-top: 4vh;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.buttons {
+    float:left;
+}
+
+.buttons form {
+    display: inline;
+}
+
+#comment-form {
+    margin-top: 5vh;
+}
+
+#comment-form textarea {
+    resize: none;
+}
+
+#add-comment {
+    margin-top: 2vh;
+}
+
+.comment-box {
+    padding: 1vh 1vw;
+    margin-top: 2vh;
+    box-shadow: 0px 2px 26px -5px rgba(0,0,0,0.2);
+}
+
+.comment-box p {
+    margin-bottom: 0;
+}
+
+.comment-box .datum {
+    float: right;
+}
+
+.comment-box .ime {
+    font-weight: bold;
+}
+
+.comment-box .btn {
+    margin-top: 1vh;
+}
+
+@media only screen and (min-width: 992px) {
+    .detail, .comments{
+        width: 60%;
+    }
+
+    .carousel-item {
+        height: 500px;
+    }
+
+    .detail h1{
+        padding-top: 2vh;
+        font-size: 2em;
+    }
+
+    .detail p {
+        font-size: 1em;
+    }
+
+    #comment-form {
+        width: 50%;
+    }
+}

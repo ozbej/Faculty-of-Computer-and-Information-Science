@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Budget calculator</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="style.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="col-12 nav">
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="sources.html">Sources</a></li>
+            <li style="float:right"><a href="https://ucilnica.fri.uni-lj.si/mod/assign/view.php?id=20875">Link to instructions</a></li>
+        </ul> 
+    </div>
+    <div class="col-12 parallax">
+        <div class="col-3 empty"></div>
+        <div class="col-6 budget">
+            <p id="available-budget">Available budget:</p>
+            <h1 id="available-budget-amount">0.00 €</h1>
+            <div class="col-6 col-s-9 budget-income">
+                <p>INCOME</p>
+                <p id="income-amount">+ 0.00 €</p>
+            </div>
+            <div class="col-6 col-s-9 budget-expenses">
+                <p>EXPENSES</p>
+                <p id="expenses-amount">- 0.00 €</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 input">
+        <select id="expenseType">
+            <option value="plus" selected>+</option>
+            <option value="minus">-</option>
+        </select>
+        <select id="incomeCategory">
+            <option value="salary">Salary</option>
+            <option value="pass-income">Passive income</option>
+            <option value="other">Other</option>
+        </select>
+        <select id="expensesCategory">
+            <option value="entertainment">Entertainment</option>
+            <option value="food-drink">Food and drink</option>
+            <option value="home">Home</option>
+            <option value="life">Life</option>
+            <option value="other">Other</option>
+        </select>
+        <input type="text" id="description" name="description" placeholder="Enter description">
+        <input type="number" id="quantity" name="quantity" placeholder="Value" min="0">
+        <button id="add-button">Add</button>
+    </div>
+    <div class="col-12" style="border-bottom: 1px solid #555; padding-bottom: 2vh;margin-bottom: 2vh;">
+        <div class="col-12 sort">
+            <div style="display: flex; flex-direction: row;">
+                <p>Sort by:</p>
+                <select id="sortType">
+                    <option disabled selected value> -- select an option -- </option>
+                    <option value="valueAsc">Value (ASC)</option>
+                    <option value="valueDesc">Value (DESC)</option>
+                    <option value="category">Category</option>
+                </select>
+            </div>
+            <div class="col-1 empty"></div>
+            <div style="display: flex; flex-direction: row;">
+                <p>Filter:</p>
+                <input type="text" class="search" name="search" id="search" placeholder="Enter filter string">
+                <button type="submit" onclick="searchPress()"><i class="fa fa-search"></i></button>
+                <button type="submit" id="clearFilter" onclick="cancelSearch()">Clear filter</button>
+            </div>
+        </div>
+        <div class="col-6" id="income">
+            <h1>Income</h1>
+        </div>
+        <div class="col-6" id="expenses">
+            <h1>Expenses</h1>
+        </div>
+        <div class="col-10 empty"></div>
+        <div class="col-2 trash">
+            <div class="trashcan tooltip" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <span class="tooltiptext">Drag and drop item to delete it</span>
+                <img src="sources/trash-closed.png" id="trash-closed" alt="trash">
+                <img src="sources/trash-open.png" id="trash-open" alt="trash">
+            </div>
+        </div>
+    </div>
+    <div class="col-12 charts">
+        <div class="col-6 charts-income">
+            <h1>Income chart</h1>
+            <canvas id="canvasIncome"></canvas>
+        </div>
+        <div class="col-6 charts-expenses">
+            <h1>Expenses chart</h1>
+            <canvas id="canvasExpenses"></canvas>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	<script src="script.js"></script>
+</body>
+</html>
